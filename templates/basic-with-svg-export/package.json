@@ -1,0 +1,12 @@
+{
+  "name": "basic-with-svg-export",
+  "version": "1.0.0",
+  "description": "",
+  "main": "p5.min.js",
+  "scripts": {
+    "start": "browser-sync start --server -f -w"
+  },
+  "keywords": [],
+  "author": "Morgan Thibert",
+  "license": "ISC"
+}
