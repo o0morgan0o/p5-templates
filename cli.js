@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('fs')
 const path = require('path')
 const chalk = require('chalk')
@@ -19,7 +20,7 @@ const getDirectories =  (source) =>{
 
 
 
- getDirectories(currentDirCli+ "/templates/")
+getDirectories(currentDirCli+ "/templates/")
 
 const choose_template = [ 
     {
@@ -49,12 +50,17 @@ const choose_template = [
     },
 ]
 
+console.log( "\n" + chalk.yellow("########## == Template Creator == ############") + "\n")
 inquirer.prompt(choose_template)
 .then(answers => {
     if(answers.template_choice == "cancel") return true
+    console.log(chalk.green("Creation of project " + projectName + " ..."))
     createDirectoryContents(answers.template_choice, answers.folder_name)
+    console.log(chalk.green("Creation of project finished !"))
 })
 .catch(err => console.log(err))
+.finally(()=> console.log( "\n" + chalk.yellow("########## == Done == ############") + "\n"))
+
 
 function createDirectoryContents(templateSelected, newProjectName){
     //creation dossier projet
@@ -62,7 +68,6 @@ function createDirectoryContents(templateSelected, newProjectName){
 
     // lecture des fichier de la template sélectionnée
     const filesToCreate = fs.readdirSync(path.join(currentDirCli, "templates", templateSelected))
-    console.log(filesToCreate)
 
     filesToCreate.forEach(file => {
         // sélection fichier par fichier dans la template

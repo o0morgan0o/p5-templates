@@ -1,5 +1,19 @@
-# TODO
+# Template generator for p5js
 
 
-User story:
-cli to type : p5-js create -> donne le choix entre les différents templates , et lance le serveur
+# Usage:
+
+```
+// install the package (be at the root of this project)
+$ npm install -g
+
+// launch the program
+$ p5-template
+``` 
+
+# Templates
+
+The templates are located in the templates folder and the contents are completely copied during the generation
+List:
+    - basic-with-svg-export
+    
