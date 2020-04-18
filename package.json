@@ -1,0 +1,17 @@
+{
+  "name": "@o0morga0o/p5-templates",
+  "version": "1.0.0",
+  "description": "Basic templates for quick creation of p5js templates",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Morgan Thibert",
+  "license": "MIT",
+  "repository": "https://github.com/o0morgan0o/p5-templates",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "inquirer": "^7.1.0",
+    "p5": "^1.0.0"
+  }
+}
