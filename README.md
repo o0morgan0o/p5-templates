@@ -9,6 +9,9 @@ $ npm install -g
 
 // launch the program
 $ p5-template
+
+// launch server
+$ npm run start
 ``` 
 
 # Templates
