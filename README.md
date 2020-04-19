@@ -11,6 +11,7 @@ $ npm install -g
 $ p5-template
 
 // launch server
+$ cd {projectName}
 $ npm run start
 ``` 
 
