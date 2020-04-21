@@ -2,6 +2,7 @@ let count = 0;
 
 function setup() {
   createCanvas(500, 705, SVG); // same aspect ratio than a4
+  background(255);
   strokeWeight(1);
   stroke(0);
   noFill();
