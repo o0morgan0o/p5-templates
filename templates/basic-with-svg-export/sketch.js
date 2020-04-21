@@ -1,9 +1,10 @@
 function setup() {
-  createCanvas(200, 287, SVG);
+  createCanvas(500, 705, SVG); // same aspect ratio than a4
   strokeWeight(1);
   stroke(0);
   noFill();
-  rect(0, 0, width, height);
+
+  rect(0,0, width,height)
 }
 
 let count = 0;
@@ -14,6 +15,20 @@ function draw() {
 
   if (count > 100) {
     noLoop();
-    // save()
+  }
+}
+
+
+
+
+
+
+
+
+
+function keyPressed(){
+  console.log(keyCode)
+  if(keyCode == 83){ // key = s
+    save()
   }
 }
