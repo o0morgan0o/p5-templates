@@ -1,3 +1,5 @@
+let count = 0;
+
 function setup() {
   createCanvas(500, 705, SVG); // same aspect ratio than a4
   strokeWeight(1);
@@ -7,7 +9,6 @@ function setup() {
   rect(0,0, width,height)
 }
 
-let count = 0;
 
 function draw() {
   count++;
