@@ -27,6 +27,10 @@ def main() :
                 fout.write("M0 \n")
                 isFound = True
 
+    fout.write("M18 \n")
+    fout.close()
+    f.close()
+
 
     
 
