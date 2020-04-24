@@ -42,9 +42,17 @@ $ python optimizeGcode.py input.gcode
 
 -> Generate svg file within p5jssvg.
 -> open svg with illustrator
--> ungroup everything
--> run `AA_cutSVG.jsx` script = (join every path)
--> run `illustrator.ahk` autohotkey script to delete unwanted path on the borders (manual and boring) **must run in admin**
+-> ungroup everything. All must be inside layer "Calque 1" without group. Make an empty layer "output"
+-> Be sure to import actions `myActions.aia` script in Illustrator. (it make pathfinder outline with selected items)
+-> run several times `AA_pathfinder.jsx` (it make pathfinder on every path)
+-> delete unnecessary things, make outline black, etc.
 -> copy the result in the illustrator template `AAA_PLOTTER_FRIXION_PEN_PILOT.ait` and place everything
 -> generate gcode with illustrator script `Export to G-code V5.jsx`
 -> Load in plotter thanks to pronterface
+
+
+
+(old process :
+-> run `AA_cutSVG.jsx` script = (join every path)
+-> run `illustrator.ahk` autohotkey script to delete unwanted path on the borders (manual and boring) **must run in admin**
+)

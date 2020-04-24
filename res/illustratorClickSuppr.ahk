@@ -16,9 +16,9 @@ Loop,1000
 	if (BreakLoop == 1)
 		break
 	Click
-	Sleep, 40
+	Sleep, 200
 	Send {Del}
-	Sleep, 40
+	Sleep, 200
 }
 SplashTextOff
 MsgBox, Finished!

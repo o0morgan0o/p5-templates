@@ -1,0 +1,82 @@
+/version 3
+/name [ 9
+	6d79416374696f6e73
+]
+/isOpen 1
+/actionCount 2
+/action-1 {
+	/name [ 5
+		7465737432
+	]
+	/keyIndex 0
+	/colorIndex 0
+	/isOpen 1
+	/eventCount 2
+	/event-1 {
+		/useRulersIn1stQuadrant 0
+		/internalName (ai_plugin_pathfinder)
+		/localizedName [ 10
+			5061746866696e646572
+		]
+		/isOpen 0
+		/isOn 1
+		/hasDialog 0
+		/parameterCount 1
+		/parameter-1 {
+			/key 1851878757
+			/showInPalette -1
+			/type (enumerated)
+			/name [ 7
+				436f6e746f7572
+			]
+			/value 6
+		}
+	}
+	/event-2 {
+		/useRulersIn1stQuadrant 0
+		/internalName (adobe_deselectAll)
+		/localizedName [ 21
+			546f75742064c3a973c3a96c656374696f6e6e6572
+		]
+		/isOpen 0
+		/isOn 0
+		/hasDialog 0
+		/parameterCount 0
+	}
+}
+/action-2 {
+	/name [ 7
+		53637269707432
+	]
+	/keyIndex 0
+	/colorIndex 1
+	/isOpen 1
+	/eventCount 1
+	/event-1 {
+		/useRulersIn1stQuadrant 0
+		/internalName (adobe_commandManager)
+		/localizedName [ 32
+			416363c3a964657220c3a020756e6520636f6d6d616e6465206465206d656e75
+		]
+		/isOpen 0
+		/isOn 1
+		/hasDialog 0
+		/parameterCount 2
+		/parameter-1 {
+			/key 1769238125
+			/showInPalette -1
+			/type (ustring)
+			/value [ 17
+				5f30303030303138433734393944383730
+			]
+		}
+		/parameter-2 {
+			/key 1818455661
+			/showInPalette -1
+			/type (ustring)
+			/value [ 13
+				41415f7061746866696e646572
+			]
+		}
+	}
+}
