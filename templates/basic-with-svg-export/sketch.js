@@ -1,9 +1,9 @@
 let count = 0;
 
 function setup() {
-  createCanvas(500, 705, SVG); // same aspect ratio than a4
+  createCanvas(218*2, 292*2, SVG); // aspect ratio for printing on 24x32
   background(255);
-  strokeWeight(1);
+  strokeWeight(1); // for .5mm pen
   stroke(0);
   noFill();
 
