@@ -1,4 +1,9 @@
 let count = 0;
+let data
+
+function preload() {
+    loadServer()
+}
 
 function setup() {
     createCanvas(218 * 2, 292 * 2, SVG); // aspect ratio for printing on 24x32
@@ -19,14 +24,4 @@ function draw() {
         noLoop()
     }
 
-}
-
-function keyPressed() {
-    console.log(keyCode)
-    if (keyCode == 83) { // key = s
-        save()
-    }
-    if (keyCode == 70) { // key = r
-        document.location.reload(true)
-    }
 }

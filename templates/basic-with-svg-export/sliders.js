@@ -1,6 +1,102 @@
 let sliders = []
+let container
+
+function loadServer() {
+    fetch("http://localhost:3003/server")
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            loadPresets(data)
+        })
+}
+
+function createButtons() {
+
+    container = createDiv()
+    container.id("my-container-buttons")
+    container.class("buttons-container")
+    createSaveButton()
+
+}
+
+function createSaveButton() {
+    let buttonSave = createButton("save preset()")
+    buttonSave.class("button-save")
+    buttonSave.parent(container)
+    buttonSave.mousePressed(savePreset)
+}
+
+function loadPresets(data) {
+    for (let i = 0; i < data.saved_configs.length; i++) {
+        console.log(data.saved_configs[i])
+        createButtonPreset(data.saved_configs[i], i)
+    }
+}
+
+function createButtonPreset(preset, i) {
+    let buttonPreset = createButton(preset.date)
+    buttonPreset.class("button-preset")
+    buttonPreset.mousePressed(() => loadPresetValues(preset, i))
+    buttonPreset.parent(container)
+}
+
+function loadPresetValues(preset, presetIndex) {
+    console.log(preset, presetIndex)
+    for (let i = 0; i < 8; i++) {
+        let slid = document.getElementById(`slid${i}`)
+        let lbl = document.getElementById(`lbl-${i}`)
+        let min = document.getElementById(`min-${i}`)
+        let max = document.getElementById(`max-${i}`)
+        slid.value = preset.sliders[i].value
+        lbl.innerHTML = `s${i}: ${parseFloat(preset.sliders[i].value).toFixed(5)}`
+        min.value = preset.sliders[i].min
+        max.value = preset.sliders[i].max
+        setCookie(`slid${i}`, preset.sliders[i].value)
+        setCookie(`min-${i}`, preset.sliders[i].min)
+        setCookie(`max-${i}`, preset.sliders[i].max)
+    }
+    window.location.reload()
+
+}
+
+function saveAllInCookies() {
+    // console.log("saving all cookies")
+    // for (let i = 0; i < )
+    //     setCookie(event.target.id, event.target.value)
+
+}
+
+function savePreset() {
+    const millis = new Date()
+
+    const myDate = `${millis.getDate()}-${millis.getMonth()+1}-${millis.getFullYear()}--${millis.getHours()}:${millis.getMinutes()}:${millis.getSeconds()}`
+
+    let myPreset = {}
+    myPreset.date = myDate
+    myPreset.sliders = []
+    for (let i = 0; i < 8; i++) {
+        let slid = document.getElementById(`slid${i}`)
+        let min = document.getElementById(`min-${i}`)
+        let max = document.getElementById(`max-${i}`)
+        myPreset.sliders.push({
+            "value": slid.value,
+            "min": min.value,
+            "max": max.value
+        })
+    }
+
+    console.log(myPreset)
+
+    fetch("http://localhost:3003/server", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(myPreset)
+    })
+}
 
 function createSliders() {
+    createButtons()
+
     let container = createDiv()
     container.id = "my-container"
     container.class("my-container")
