@@ -1,3 +1,4 @@
+//@ts-nocheck
 let s0 = () => sliders[0].value()
 let s1 = () => sliders[1].value()
 let s2 = () => sliders[2].value()

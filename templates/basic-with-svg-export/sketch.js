@@ -1,8 +1,12 @@
+// @ts-nocheck
 let count = 0;
-let data
+let data;
+let colors = []
+let color1, color2, color3, color4, color5
 
 function preload() {
     loadServer()
+    generateColors()
 }
 
 function setup() {
@@ -15,6 +19,7 @@ function setup() {
     noFill();
 
     rect(0, 0, width, height)
+    stroke(color3)
     rect(random(width), random(height), s0(), s0());
 
 }
