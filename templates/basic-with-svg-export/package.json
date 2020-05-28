@@ -7,13 +7,14 @@
         "server": "node ./dbserver/server.js",
         "browser": "browser-sync start --server -f -w",
         "test": "start http://localhost:3000",
-        "start": "start npm run server && start npm run browser"
+        "start": "node server.js"
     },
     "keywords": [],
     "author": "Morgan Thibert",
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.19.0",
+        "browser-sync": "^2.26.7",
         "cors": "^2.8.5",
         "express": "^4.17.1"
     },
