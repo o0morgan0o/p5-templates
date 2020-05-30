@@ -11,6 +11,7 @@ function preload() {
 
 function setup() {
     createCanvas(218 * 2, 292 * 2, SVG); // aspect ratio for printing on 24x32
+    // createCanvas(218 * 2, 292 * 2); // aspect ratio for printing on 24x32
     noLoop();
     createSliders();
     background(255);
@@ -18,8 +19,11 @@ function setup() {
     stroke(0);
     noFill();
 
-    rect(0, 0, width, height)
-    stroke(color3)
-    rect(random(width), random(height), s0(), s0());
+    // stroke(color3)
+    // rect(random(width), random(height), s0(), s0());
+
+}
+
+function draw() {
 
 }
