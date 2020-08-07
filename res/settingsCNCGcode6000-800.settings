@@ -1,0 +1,6 @@
+G1 Z5.5 F800
+G1 F6000
+;end of initialization|6000|6000|/e/trash|output|;end of file
+| |||||||G1 Z0 F800
+G1 F6000 |G1 Z5.5 F800
+G1 F6000 |FF0000|00FF00|0000FF||
