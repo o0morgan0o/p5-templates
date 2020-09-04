@@ -1,12 +1,12 @@
-﻿/**********************************************************
+
+
+/**********************************************************
 *********************************************************/
 // alert("working")
-// #target Illustrator-23
 #targetengine main
-//test
 
-(function(){
-alert( 'We will start to change 80 elements, make sure you have layers "Calque 1" and "output \"')
+// This script seems to work only in extendScript
+
 
 var myDoc = activeDocument;
 var myLayer = myDoc.layers.getByName("Calque 1");
@@ -19,36 +19,42 @@ alert("remaining "+ myPathItems.length + " items ...")
 // progress(myPathItems.length)
 // alert("starting on " + myPathItems.length + " items...")
 
-function applyPathfinder(){
-    app.doScript("test2", "myActions");
 
+function applyPathfinder(){
+    try{
+    app.doScript("test2", "myActions");
+        // alert("success");
+    }catch(err){ 
+        alert(err.toString());
+    }
 }
 
 
 
-// get document dimensions
-var myArtboard = myDoc.artboards[0];
-var top = (myArtboard.artboardRect[1])
-var left = (myArtboard.artboardRect[0])
-var width = (myArtboard.artboardRect[2] - left)
-var height = (top - myArtboard.artboardRect[3])
-
 // create temp layer
 var outputLayer = myDoc.layers.getByName("output")
     app.selection = null;
+var shape = myDoc.layers.getByName("shape")
+// var newItemFirst = shape.pathItems[0].duplicate(shape, ElementPlacement.PLACEATEND)
+// newItemFirst.selected=false
 
 
 
 for(var i = 0 ; i < myPathItems.length ; i++){
-
-    
+    if(i==0){
+        var additionalItem = shape.pathItems[0].duplicate(shape, ElementPlacement.PLACEATEND)
+        app.selection = null
+        alert('temporisation')
+    }
+    // get shape dimensions
+    var newItem = shape.pathItems[0].duplicate(shape, ElementPlacement.PLACEATEND)
+    newItem.selected = false
+    app.selection =null
     
     var currentPathItem = myPathItems[i];
     currentPathItem.selected = true
-
-    
     // create rectangle for pathfinder
-    myDoc.pathItems.rectangle(top, left, width, height).selected = true
+    shape.pathItems[0].selected = true
 
     applyPathfinder()
     var docSelected = app.activeDocument.selection
@@ -58,25 +64,18 @@ for(var i = 0 ; i < myPathItems.length ; i++){
         item.move(outputLayer, ElementPlacement.PLACEATBEGINNING);
     }
 
-    app.executeMenuCommand("ungroup");
+    app.executeMenuCommand("ungroup")
 
-   app.selection = null;
+    app.selection = null;
 
-    if(i > 80){
-        alert('end');
-        return true;
-    }
 
-    // progress.message("trying pathfinder : "+ i + " / " + myPathItems.length)
-    // progress.increment()
+    if(i > 40){
+        break;
+        }
+
 
 
     // break;
     // if(i == 3) break;
 
 }
-        alert('end');
-return true;
-
-
-})();
