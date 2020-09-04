@@ -12,6 +12,7 @@ function preload() {
 function setup() {
     createCanvas(373 * 2, 455 * 2, SVG); // aspect ratio for printing on 24x32
     blendMode(MULTIPLY)
+    let pixelGrid = new PixelGrid(30, 30, 10)
     // createCanvas(373 * 2, 455 * 2); // aspect ratio for printing on 24x32
     noLoop();
     // createSliders();
@@ -20,9 +21,16 @@ function setup() {
     background(255);
     noFill();
 
+    for (let x = 0; x < pixelGrid.width; x++) {
+        for (let y = 0; y < pixelGrid.height; y++) {
+            let val = pixelGrid.getPixel(x, y)
+            ellipse(x * 20, y * 20, 20)
+        }
+    }
 
 }
 
 function draw() {
 
 }
+
