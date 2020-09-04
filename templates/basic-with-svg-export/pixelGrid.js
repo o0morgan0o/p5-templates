@@ -7,6 +7,7 @@ class PixelGrid {
         for (let i = 0; i < width * height; i++) {
             this.pixels[i] = init
         }
+        this.length = this.pixels.length
     }
 
     randomize(min, max) {
@@ -24,7 +25,16 @@ class PixelGrid {
     }
 
     getPixel(x, y) {
+        if (y === undefined) {
+            return this.getPixelWithIndex(x)
+        }
         let index = x + y * this.width
         return this.pixels[index]
+    }
+
+    getPixelWithIndex(index) {
+        let x = index % this.width
+        let y = (index - x) / this.width
+        return [x, y]
     }
 }
