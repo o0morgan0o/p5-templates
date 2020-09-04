@@ -59,7 +59,7 @@ inquirer.prompt(choose_template)
         createDirectoryContents(answers.template_choice, answers.folder_name)
         console.log(chalk.green("Creation of project finished !"))
         console.log(chalk.green("installation of libs, Please wait ..."))
-        execShellCommand(`cd ${projectName} && npm install && npm init && git checkout -b init`)
+        execShellCommand(`cd ${projectName} && npm install && git init`)
             .then(data => {
                 console.log(data)
                 console.log(chalk.yellow('########## == Installation finished == ############') + '\nrun ' + chalk.cyan(`cd ${projectName} && npm run start`))
